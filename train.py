@@ -1,5 +1,4 @@
 import os
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 import numpy as np
 import tensorflow as tf
 from unet_model import build_unet
@@ -13,8 +12,8 @@ if __name__ == "__main__":
     dataset_path = "building-segmentation"
     input_shape = (256, 256, 3)
     batch_size = 12
-    model = 'unet'
-    epochs = 1
+    model = 'segnet'
+    epochs = 5
     res = 64
     lr = 1e-3
     model_path = f"{model}_models/{model}_{epochs}_epochs_{res}.h5"

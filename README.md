@@ -2,6 +2,7 @@
 
 Created by [Katrine Nguyen](https://github.com/katrineng) and [Martin Wangen-Eriksen](https://github.com/martinwe001) as a part of our specialized project at Norwegian University of Science and Technology [(NTNU)](https://www.ntnu.edu/).
 
+<<<<<<< HEAD
 ## Models
 
 Most of our code and the U-net model is significantly inspired by this project [Unet-for-Person-Segmentation](https://github.com/nikhilroxtomar/Unet-for-Person-Segmentation). The SegNet model we created on our own based on other implementations of SegNet in Tensorflow.

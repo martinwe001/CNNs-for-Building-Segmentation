@@ -7,7 +7,7 @@ from tensorflow.keras.layers import BatchNormalization
 import tensorflow_addons as tfa
 
 
-def build_segnet(input_shape, n_labels=1, kernel=3, pool_size=(2, 2), output_mode="softmax"):
+def build_segnet(input_shape, n_labels=1, kernel=3, pool_size=(2, 2), output_mode="sigmoid"):
     # encoder
     inputs = Input(input_shape)
 

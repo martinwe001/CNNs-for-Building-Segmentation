@@ -14,8 +14,8 @@ if __name__ == "__main__":
 
     """ Load the model """
 
-    model = 'segnet'
-    epochs = 1
+    model = 'unet'
+    epochs = 5
     res = 64
 
     model = tf.keras.models.load_model(f"{model}_models/{model}_{epochs}_epochs_{res}.h5", custom_objects={'MaxUnpooling2D': tfa.layers.MaxUnpooling2D})
@@ -48,4 +48,4 @@ if __name__ == "__main__":
         cv2.addWeighted(pred_mask, alpha, original_image, 1-alpha, 0, original_image)
 
         name = path.split("/")[-1]
-        cv2.imwrite(f"save_images/{name}", pred_mask)
+        cv2.imwrite(f"save_images/{name}", original_image)
