@@ -12,7 +12,7 @@ if __name__ == "__main__":
     dataset_path = "building-segmentation"
     input_shape = (256, 256, 3)
     batch_size = 8
-    model = 'segnet'
+    model = 'unet'
     epochs = 100
     res = 64
     lr = 1e-3
@@ -44,7 +44,7 @@ if __name__ == "__main__":
 
     callbacks = [
         ModelCheckpoint(model_path, monitor="val_loss", verbose=1),
-        ReduceLROnPlateau(monitor="val_loss", patience=5, factor=0.1, verbose=1),
+        ReduceLROnPlateau(monitor="val_loss", patience=10, factor=0.1, verbose=1),
         CSVLogger(csv_path),
         EarlyStopping(monitor="val_loss", patience=10)
     ]

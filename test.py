@@ -18,7 +18,7 @@ if __name__ == "__main__":
     epochs = 34
     res = 64
 
-    model = tf.keras.models.load_model(f"{model}_models/{model}_{epochs}_epochs_{res}_lr_3.h5", custom_objects={'MaxUnpooling2D': tfa.layers.MaxUnpooling2D})
+    model = tf.keras.models.load_model(f"{model}_models/{model}_{epochs}_epochs_{res}.h5", custom_objects={'MaxUnpooling2D': tfa.layers.MaxUnpooling2D})
 
     for path in tqdm(test_images, total=len(test_images)):
         x = cv2.imread(path, cv2.IMREAD_COLOR)
@@ -44,8 +44,9 @@ if __name__ == "__main__":
 
         original_image = original_image.astype(np.float32)
 
-        alpha = 0.6
-        cv2.addWeighted(pred_mask, alpha, original_image, 1-alpha, 0, original_image)
+        alpha_image = 0.8
+        alpha_mask = 1
+        cv2.addWeighted(pred_mask, alpha_mask, original_image, alpha_image, 0, original_image)
 
         name = path.split("/")[-1]
         cv2.imwrite(f"save_images/{name}", original_image)
