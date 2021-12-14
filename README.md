@@ -20,7 +20,7 @@ To make the masks compatible with our model the masks was changed from white (25
 
 ### Folder structure
 
-Images and masks are fetched from local directories defined in [data.py](https://github.com/martinwe001/CNNs-for-Building-Segmentation/blob/main/data.py) and [test.py](https://github.com/martinwe001/CNNs-for-Building-Segmentation/blob/main/test.py). This is of course possible to change, however if you want to you can follow this folder structure.
+Images and masks are saved in local directories and used in [data.py](https://github.com/martinwe001/CNNs-for-Building-Segmentation/blob/main/data.py) and [test.py](https://github.com/martinwe001/CNNs-for-Building-Segmentation/blob/main/test.py). This is of course possible to change, however if you want to use the exact same code you can follow this folder structure.
 
 ```
 
