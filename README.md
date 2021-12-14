@@ -41,6 +41,18 @@ Images and masks are saved in local directories and used in [data.py](https://gi
 └── ...
 ```
 
+```python
+# data.py
+    images = glob(os.path.join(dataset_path, "images/cropped_images_train_64/*"))
+    masks = glob(os.path.join(dataset_path, "masks/cropped_masks_train_64/*"))
+    
+    # In main:
+        dataset_path = "building-segmentation"
+    
+# test.py
+    test_images = glob("building-segmentation/test/test_64/*")
+```
+
 ## Running the project
 
 ### Requirements
@@ -48,3 +60,5 @@ Images and masks are saved in local directories and used in [data.py](https://gi
 ### Training
 
 ### Testing
+
+
