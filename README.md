@@ -14,9 +14,32 @@ The model is trained and tested on Massachusetts Buildings Dataset from [Kaggle]
     <img src="readme_images/image.png" width="400"><img src="readme_images/mask.png" width="400">
 </p>
 
-To make the masks compatible with our model the masks was changed from white (255,255,255) labels to greyscale with value 1. 
+To make the masks compatible with our model the masks was changed from white (255,255,255) labels to greyscale with value 1. This is done in [image_fix.py](https://github.com/martinwe001/CNNs-for-Building-Segmentation/blob/main/image_processing/image_fix.py) found in the repo.
 
 <img src="readme_images/22678915_15_crop_11_.jpg" width="400">
+
+### Folder structure
+
+Images and masks are fetched from local directories defined in [data.py](https://github.com/martinwe001/CNNs-for-Building-Segmentation/blob/main/data.py) and [test.py](https://github.com/martinwe001/CNNs-for-Building-Segmentation/blob/main/test.py). This is of course possible to change, however if you want to you can follow this folder structure.
+
+```
+
+.
+├── ...
+├── building-segmentation                # Directory for all images
+│   ├── Images                           # Directory for raw images
+│   │   ├── cropped_images_train_64      # Directory for cropped images where number specifies resolution, containg .jpg
+│   │   ├── cropped_images_train_128     # Directory for cropped images where number specifies resolution, containg .jpg 
+│   │   └── ...                          # More directories with other resolutions
+│   ├── Masks                            # Directory for all maskes
+│   │   ├── cropped_masks_train_64       # Directory for cropped masks where number specifies resolution, containg .jpg
+│   │   ├── cropped_masks_train_128      # Directory for cropped masks where number specifies resolution, containg .jpg 
+│   │   └── ...                          # More directories with other resolutions
+│   └── Test                             # Miscellaneous information
+│       ├── test_64                      # Directory for images where number specifies resolution, containing .jpg
+│       └── ...                          # More directories with other resolutions
+└── ...
+```
 
 ## Running the project
 
