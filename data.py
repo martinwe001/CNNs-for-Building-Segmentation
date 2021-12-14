@@ -61,6 +61,6 @@ if __name__ == "__main__":
     dataset_path = "building-segmentation"
     (train_x, train_y), (test_x, test_y) = load_dataset(dataset_path)
     print(f"Train: {len(train_x)} - {len(train_y)}")
-    print(f"Test: {len(test_x)} - {len(test_y)}")
+    print(f"Validation: {len(test_x)} - {len(test_y)}")
 
     train_dataset = tf_dataset(train_x, train_y, batch=8)
