@@ -15,10 +15,10 @@ if __name__ == "__main__":
     """ Load the model """
 
     model = 'unet'
-    epochs = 5
+    epochs = 34
     res = 64
 
-    model = tf.keras.models.load_model(f"{model}_models/{model}_{epochs}_epochs_{res}.h5", custom_objects={'MaxUnpooling2D': tfa.layers.MaxUnpooling2D})
+    model = tf.keras.models.load_model(f"{model}_models/{model}_{epochs}_epochs_{res}_lr_3.h5", custom_objects={'MaxUnpooling2D': tfa.layers.MaxUnpooling2D})
 
     for path in tqdm(test_images, total=len(test_images)):
         x = cv2.imread(path, cv2.IMREAD_COLOR)

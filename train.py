@@ -11,9 +11,9 @@ if __name__ == "__main__":
     """ Hyperparamaters """
     dataset_path = "building-segmentation"
     input_shape = (256, 256, 3)
-    batch_size = 12
+    batch_size = 8
     model = 'segnet'
-    epochs = 5
+    epochs = 100
     res = 64
     lr = 1e-3
     model_path = f"{model}_models/{model}_{epochs}_epochs_{res}.h5"

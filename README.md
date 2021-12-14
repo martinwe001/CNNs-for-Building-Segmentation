@@ -16,7 +16,7 @@ The model is trained and tested on Massachusetts Buildings Dataset from [Kaggle]
 
 To make the masks compatible with our model the masks was changed from white (255,255,255) labels to greyscale with value 1. 
 
-<img src="building-segmentation/masks/cropped_masks_train/22678915_15_crop_11_.jpg" width="400">
+<img src="readme_images/22678915_15_crop_11_.jpg" width="400">
 
 ## Running the project
 
