@@ -16,7 +16,7 @@ if __name__ == "__main__":
     epochs = 100
     res = 64
     lr = 1e-3
-    model_path = f"{model}_models/{model}_{epochs}_epochs_{res}.h5"
+    model_path = f"{model}_models/{model}_{epochs}_epochs_{res}_unet.h5"
     csv_path = f"csv/data_{model}_{epochs}_{res}.csv"
 
     """ Load the dataset """
@@ -28,8 +28,8 @@ if __name__ == "__main__":
     val_dataset = tf_dataset(val_images, val_masks, batch=batch_size)
 
     """ Model """
-    #model = build_unet(input_shape)
-    model = build_segnet(input_shape)
+    model = build_unet(input_shape)
+    #model = build_segnet(input_shape)
     model.compile(
         loss="binary_crossentropy",
         optimizer=tf.keras.optimizers.Adam(lr),
