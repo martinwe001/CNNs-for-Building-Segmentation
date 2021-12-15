@@ -10,15 +10,15 @@ import tensorflow_addons as tfa
 
 if __name__ == "__main__":
     """ Load the test images """
-    test_images = glob("building-segmentation/test/test_64/*")
+    test_images = glob("building-segmentation/images/cropped_images_train_64/*")
 
     """ Load the model """
 
     model = 'unet'
-    epochs = 34
+    epochs = 100
     res = 64
 
-    model = tf.keras.models.load_model(f"{model}_models/{model}_{epochs}_epochs_{res}.h5", custom_objects={'MaxUnpooling2D': tfa.layers.MaxUnpooling2D})
+    model = tf.keras.models.load_model(f"{model}_models/{model}_{epochs}_epochs_{res}_unet.h5", custom_objects={'MaxUnpooling2D': tfa.layers.MaxUnpooling2D})
 
     for path in tqdm(test_images, total=len(test_images)):
         x = cv2.imread(path, cv2.IMREAD_COLOR)

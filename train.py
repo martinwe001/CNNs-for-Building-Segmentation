@@ -16,8 +16,8 @@ if __name__ == "__main__":
     epochs = 100
     res = 64
     lr = 1e-3
-    model_path = f"{model}_models/{model}_{epochs}_epochs_{res}_unet.h5"
-    csv_path = f"csv/data_{model}_{epochs}_{res}.csv"
+    model_path = f"{model}_models/{model}_{epochs}_epochs_{res}.h5"
+    csv_path = f"csv/data_{model}_{epochs}_{res}_1.csv"
 
     """ Load the dataset """
     (train_images, train_masks), (val_images, val_masks) = load_dataset(dataset_path)

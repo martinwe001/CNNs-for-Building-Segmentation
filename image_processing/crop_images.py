@@ -21,15 +21,15 @@ def crop_images(folder_path):
                 cv2.imwrite(f'building-segmentation/images/cropped_images_test_32/{name}_crop_' + str(count) + '.jpg', cropped_img)
     cv2.waitKey()
 
-crop_images('building-segmentation/images/images_64/')
+#('building-segmentation/images/images_64/')
 
 def number_of_pixel_value_check(folder_p):
 
     for filename in os.listdir(folder_p):
         pixel_value = check_for_any_white(folder_p, filename)
-        if pixel_value < 200:
-            os.remove(f'building-segmentation/masks/cropped_masks_test_64/{filename}')
-            os.remove(f'building-segmentation/images/cropped_images_test_64/{filename}')
+        if pixel_value < 100:
+            os.remove(f'building-segmentation/masks/cropped_masks_train_64/{filename}')
+            os.remove(f'building-segmentation/images/cropped_images_train_64/{filename}')
     return
 
-#number_of_pixel_value_check('building-segmentation/masks/cropped_masks_train_128/')
+number_of_pixel_value_check('building-segmentation/masks/cropped_masks_train_64/')
