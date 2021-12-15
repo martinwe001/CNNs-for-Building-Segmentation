@@ -36,7 +36,6 @@ if __name__ == "__main__":
         optimizer=tf.keras.optimizers.Adam(lr),
         metrics=[
             tf.keras.metrics.MeanIoU(num_classes=2),
-            tf.keras.metrics.IoU(num_classes=2, target_class_id=[1])
             tf.keras.metrics.Recall(),
             tf.keras.metrics.Precision()
         ]
