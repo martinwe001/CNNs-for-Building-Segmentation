@@ -28,8 +28,8 @@ if __name__ == "__main__":
     val_dataset = tf_dataset(val_images, val_masks, batch=batch_size)
 
     """ Model """
-    #model = build_unet(input_shape)
-    model = build_segnet(input_shape)
+    model = build_unet(input_shape)
+    #model = build_segnet(input_shape)
     model.compile(
         loss="binary_crossentropy",
         optimizer=tf.keras.optimizers.Adam(lr),
