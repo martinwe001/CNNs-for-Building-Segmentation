@@ -10,10 +10,10 @@ from tensorflow.keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, CSVLo
 if __name__ == "__main__":
     """ Hyperparamaters """
     dataset_path = "building-segmentation"
-    input_shape = (256, 256, 3)
+    input_shape = (64, 64, 3)
     batch_size = 8
     model = 'unet'
-    epochs = 100
+    epochs = 300
     res = 64
     lr = 1e-3
     model_path = f"{model}_models/{model}_{epochs}_epochs_{res}.h5"
@@ -28,8 +28,8 @@ if __name__ == "__main__":
     val_dataset = tf_dataset(val_images, val_masks, batch=batch_size)
 
     """ Model """
-    model = build_unet(input_shape)
-    #model = build_segnet(input_shape)
+    #model = build_unet(input_shape)
+    model = build_segnet(input_shape)
     model.compile(
         loss="binary_crossentropy",
         optimizer=tf.keras.optimizers.Adam(lr),

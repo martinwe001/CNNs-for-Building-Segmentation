@@ -10,22 +10,22 @@ import tensorflow_addons as tfa
 
 if __name__ == "__main__":
     """ Load the test images """
-    test_images = glob("building-segmentation/images/cropped_images_train_64/*")
+    test_images = glob("building-segmentation/test/test_64/*")
 
     """ Load the model """
 
-    model = 'unet'
-    epochs = 100
+    model = 'segnet'
+    epochs = 300
     res = 64
 
-    model = tf.keras.models.load_model(f"{model}_models/{model}_{epochs}_epochs_{res}_unet.h5", custom_objects={'MaxUnpooling2D': tfa.layers.MaxUnpooling2D})
+    model = tf.keras.models.load_model(f"{model}_models/{model}_{epochs}_epochs_{res}.h5", custom_objects={'MaxUnpooling2D': tfa.layers.MaxUnpooling2D})
 
     for path in tqdm(test_images, total=len(test_images)):
         x = cv2.imread(path, cv2.IMREAD_COLOR)
         original_image = x
         h, w, _ = x.shape
 
-        x = cv2.resize(x, (256, 256))
+        #x = cv2.resize(x, (64, 64))
         #x = x/255.0
         x = x.astype(np.float32)
 
@@ -49,4 +49,4 @@ if __name__ == "__main__":
         cv2.addWeighted(pred_mask, alpha_mask, original_image, alpha_image, 0, original_image)
 
         name = path.split("/")[-1]
-        cv2.imwrite(f"save_images/{name}", original_image)
+        cv2.imwrite(f"save_images/{name}", pred_mask)

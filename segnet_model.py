@@ -133,6 +133,6 @@ def build_segnet(input_shape, n_labels=1, kernel=3, pool_size=(2, 2), output_mod
 
 
 if __name__ == "__main__":
-    input_shape = (256, 256, 3)
+    input_shape = (64, 64, 3)
     model = build_segnet(input_shape)
     model.summary()
