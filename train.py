@@ -23,6 +23,7 @@ if __name__ == "__main__":
     (train_images, train_masks), (val_images, val_masks) = load_dataset(dataset_path)
     print(f"Train: {len(train_images)} - {len(train_masks)}")
     print(f"Validation: {len(val_images)} - {len(val_masks)}")
+    print(f'Now training {model} model with batch size: {batch_size} and for {epochs} epochs')
 
     train_dataset = tf_dataset(train_images, train_masks, batch=batch_size)
     val_dataset = tf_dataset(val_images, val_masks, batch=batch_size)
