@@ -49,7 +49,6 @@ if __name__ == "__main__":
         ]
     )
 
-    # model.summary()
 
     callbacks = [
         ModelCheckpoint(model_path, monitor="val_loss", verbose=1),
