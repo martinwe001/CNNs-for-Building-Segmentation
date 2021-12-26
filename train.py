@@ -7,18 +7,19 @@ from new_model import build_simpler_model
 from data import load_dataset, tf_dataset
 from tensorflow.keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, CSVLogger, EarlyStopping
 
+model_types = ['segnet-master', 'unet-master', 'simpler']
 
 if __name__ == "__main__":
     """ Hyperparamaters """
     dataset_path = "building-segmentation"
     input_shape = (64, 64, 3)
     batch_size = 20
-    model = 'unet-master'
+    model = 1
     epochs = 1
     res = 64
     lr = 1e-3
-    model_path = f"{model}_models/{model}_{epochs}_epochs_{res}_batch20.h5"
-    csv_path = f"csv/data_{model}_{epochs}_{res}_batch20.csv"
+    model_path = f"{model_types[model]}_models/{model_types[model]}_{epochs}_epochs_{res}_batch20.h5"
+    csv_path = f"csv/data_{model_types[model]}_{epochs}_{res}_batch20.csv"
 
     """ Load the dataset """
     (train_images, train_masks), (val_images, val_masks) = load_dataset(dataset_path)
@@ -30,9 +31,13 @@ if __name__ == "__main__":
     val_dataset = tf_dataset(val_images, val_masks, batch=batch_size)
 
     """ Model """
-    model = build_unet(input_shape)
-    #model = build_simpler_model(input_shape)
-    #model = build_segnet(input_shape)
+    if model == 0:
+        model = build_segnet(input_shape)
+    if model == 1:
+        model = build_unet(input_shape)
+    if model == 2:
+        model = build_simpler_model(input_shape)
+
     model.compile(
         loss="binary_crossentropy",
         optimizer=tf.keras.optimizers.Adam(lr),
