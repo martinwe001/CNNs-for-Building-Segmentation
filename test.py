@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     """ Load the model """
 
-    model = 'segnet'
+    model = 'unet'
     epochs = 300
     res = 64
 
@@ -25,7 +25,7 @@ if __name__ == "__main__":
         original_image = x
         h, w, _ = x.shape
 
-        #x = cv2.resize(x, (64, 64))
+        x = cv2.resize(x, (64, 64))
         #x = x/255.0
         x = x.astype(np.float32)
 
@@ -49,4 +49,4 @@ if __name__ == "__main__":
         cv2.addWeighted(pred_mask, alpha_mask, original_image, alpha_image, 0, original_image)
 
         name = path.split("/")[-1]
-        cv2.imwrite(f"save_images/{name}", pred_mask)
+        cv2.imwrite(f"save_images/{name}", original_image)

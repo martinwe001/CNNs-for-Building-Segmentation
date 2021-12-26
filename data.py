@@ -49,7 +49,7 @@ def preprocess(image_path, mask_path):
     return image, mask
 
 
-def tf_dataset(images, masks, batch=20):
+def tf_dataset(images, masks, batch=40):
     dataset = tf.data.Dataset.from_tensor_slices((images, masks))
     dataset = dataset.shuffle(buffer_size=5000)
     dataset = dataset.map(preprocess)
@@ -63,4 +63,4 @@ if __name__ == "__main__":
     print(f"Train: {len(train_x)} - {len(train_y)}")
     print(f"Validation: {len(test_x)} - {len(test_y)}")
 
-    train_dataset = tf_dataset(train_x, train_y, batch=20)
+    train_dataset = tf_dataset(train_x, train_y, batch=40)
