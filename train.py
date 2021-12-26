@@ -3,7 +3,7 @@ import numpy as np
 import tensorflow as tf
 from unet_model import build_unet
 from segnet_model import build_segnet
-from new_model import build_simpler_model
+from new_model import build_simpler_model, build_even_simpler_model
 from data import load_dataset, tf_dataset
 from tensorflow.keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, CSVLogger, EarlyStopping
 
@@ -14,7 +14,7 @@ if __name__ == "__main__":
     dataset_path = "building-segmentation"
     input_shape = (64, 64, 3)
     batch_size = 20
-    model = 1
+    model = 2
     epochs = 5
     res = 64
     lr = 1e-3
@@ -37,6 +37,8 @@ if __name__ == "__main__":
         model = build_unet(input_shape)
     if model == 2:
         model = build_simpler_model(input_shape)
+    if model == 3:
+        model = build_even_simpler_model(input_shape)
 
     model.compile(
         loss="binary_crossentropy",
