@@ -7,14 +7,14 @@ from new_model import build_simpler_model
 from data import load_dataset, tf_dataset
 from tensorflow.keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, CSVLogger, EarlyStopping
 
-model_types = ['segnet-master', 'unet-master', 'simpler']
+model_types = ['segnet-master', 'unet-master', 'simpler', 'even-simpler']
 
 if __name__ == "__main__":
     """ Hyperparamaters """
     dataset_path = "building-segmentation"
     input_shape = (64, 64, 3)
     batch_size = 20
-    model = 2
+    model = 1
     epochs = 5
     res = 64
     lr = 1e-3
