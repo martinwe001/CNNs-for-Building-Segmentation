@@ -3,6 +3,7 @@ import numpy as np
 import tensorflow as tf
 from unet_model import build_unet
 from segnet_model import build_segnet
+from new_model import build_simpler_model
 from data import load_dataset, tf_dataset
 from tensorflow.keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, CSVLogger, EarlyStopping
 
@@ -30,6 +31,7 @@ if __name__ == "__main__":
 
     """ Model """
     model = build_unet(input_shape)
+    #model = build_simpler_model(input_shape)
     #model = build_segnet(input_shape)
     model.compile(
         loss="binary_crossentropy",
