@@ -23,7 +23,7 @@ def decoder_block(input, skip_features, num_filters):
     x = conv_block(x, num_filters)
     return x
 
-def build_model(input_shape):
+def build_simpler_model(input_shape):
     inputs = Input(input_shape)
 
     s1, p1 = encoder_block(inputs, 64)
