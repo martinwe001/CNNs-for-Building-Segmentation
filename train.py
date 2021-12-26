@@ -15,7 +15,7 @@ if __name__ == "__main__":
     input_shape = (64, 64, 3)
     batch_size = 20
     model = 3
-    epochs = 1
+    epochs = 5
     res = 64
     lr = 1e-3
     model_path = f"{model_types[model]}_models/{model_types[model]}_{epochs}_epochs_{res}_batch20.h5"
