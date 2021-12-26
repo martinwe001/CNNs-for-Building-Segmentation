@@ -57,5 +57,7 @@ def build_even_simpler_model(input_shape):
 
 if __name__ == "__main__":
     input_shape = (64, 64, 3)
-    model = build_model(input_shape)
+    model = build_simpler_model(input_shape)
+    model.summary()
+    model = build_even_simpler_model(input_shape)
     model.summary()
