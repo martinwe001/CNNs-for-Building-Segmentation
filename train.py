@@ -12,8 +12,8 @@ if __name__ == "__main__":
     dataset_path = "building-segmentation"
     input_shape = (64, 64, 3)
     batch_size = 20
-    model = 'segnet'
-    epochs = 300
+    model = 'unet-master'
+    epochs = 1
     res = 64
     lr = 1e-3
     model_path = f"{model}_models/{model}_{epochs}_epochs_{res}_batch20.h5"
@@ -29,8 +29,8 @@ if __name__ == "__main__":
     val_dataset = tf_dataset(val_images, val_masks, batch=batch_size)
 
     """ Model """
-    #model = build_unet(input_shape)
-    model = build_segnet(input_shape)
+    model = build_unet(input_shape)
+    #model = build_segnet(input_shape)
     model.compile(
         loss="binary_crossentropy",
         optimizer=tf.keras.optimizers.Adam(lr),
